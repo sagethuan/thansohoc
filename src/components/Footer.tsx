@@ -52,7 +52,7 @@ export default function Footer() {
                         <h4 className="font-semibold text-cream-100 text-lg mb-4">Kết nối</h4>
                         <div className="flex gap-4">
                             <a
-                                href="https://facebook.com/thansohoc"
+                                href="https://www.facebook.com/SageThuan/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lavender-600 flex items-center justify-center transition-colors group"
