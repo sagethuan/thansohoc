@@ -1,0 +1,667 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream-primary: #FEFCF3;
+  --lavender-primary: #A78BDB;
+  --gold-primary: #D4A853;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  background:
+    linear-gradient(135deg, rgba(15, 12, 41, 0.85) 0%, rgba(48, 43, 99, 0.85) 50%, rgba(36, 36, 62, 0.85) 100%),
+    url('/mystical-bg.png');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A78BDB, #D4A853);
+  border-radius: 4px;
+}
+
+/* Glass effect utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Heading font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+/* Gradient text */
+.gradient-text {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  background: linear-gradient(135deg, #D4A853, #A78BDB, #FEFCF3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(167, 139, 219, 0.2);
+}
+
+/* Button glow effect */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transition: left 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+/* Starfield background */
+.starfield {
+  position: relative;
+  overflow: hidden;
+}
+
+.starfield::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90% 40%, white, transparent),
+    radial-gradient(2px 2px at 60% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(2px 2px at 70% 60%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 10% 90%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(2px 2px at 85% 75%, rgba(255, 255, 255, 0.6), transparent);
+  background-size: 200% 200%;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+/* Fade in animation for sections */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(167, 139, 219, 0.3);
+  border-top-color: #D4A853;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Input focus effects */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #A78BDB !important;
+  box-shadow: 0 0 0 3px rgba(167, 139, 219, 0.2);
+}
+
+/* Number card special styling */
+.number-display {
+  font-size: 5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #D4A853, #FFE699);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
+}
+
+/* Sacred geometry decoration */
+.sacred-decoration {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(167, 139, 219, 0.2);
+  border-radius: 50%;
+  animation: rotate 30s linear infinite;
+}
+
+.sacred-decoration::before,
+.sacred-decoration::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sacred-decoration::after {
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== SPARKLE EFFECTS ===== */
+
+/* Sparkle Container */
+.sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Sparkle Particles */
+.sparkle-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: sparkleFloat 4s ease-in-out infinite, sparklePulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-30px) translateX(10px) scale(1.2);
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparklePulse {
+  0% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+
+  100% {
+    filter: brightness(1.5);
+    transform: scale(1.3);
+  }
+}
+
+/* ===== FALLING LIGHT EFFECT ===== */
+
+/* Falling Light Container */
+.falling-light {
+  position: absolute;
+  top: -100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fallDown linear infinite;
+  opacity: 0;
+}
+
+/* Light Head - The glowing orb */
+.light-head {
+  border-radius: 50%;
+  animation: twinkle 0.5s ease-in-out infinite alternate;
+}
+
+/* Light Tail - The trailing glow */
+.light-tail {
+  width: 2px;
+  margin-top: -1px;
+  border-radius: 0 0 50% 50%;
+  filter: blur(1px);
+  animation: tailPulse 1s ease-in-out infinite alternate;
+}
+
+/* Falling animation */
+@keyframes fallDown {
+  0% {
+    top: -100px;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateX(20px) rotate(5deg);
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 110vh;
+    opacity: 0;
+    transform: translateX(-10px) rotate(-3deg);
+  }
+}
+
+/* Twinkle effect for light head */
+@keyframes twinkle {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  100% {
+    transform: scale(1.3);
+    filter: brightness(1.5);
+  }
+}
+
+/* Pulse effect for tail */
+@keyframes tailPulse {
+  0% {
+    opacity: 0.4;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+}
+
+/* Shimmer Effect for Text and Elements */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      rgba(212, 168, 83, 0.3),
+      rgba(255, 255, 255, 0.2),
+      transparent);
+  animation: shimmerMove 3s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+/* Glitter Hover Effect for Cards */
+.glitter-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(212, 168, 83, 0.8), transparent),
+    radial-gradient(2px 2px at 40% 70%, rgba(167, 139, 219, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 60% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 80% 50%, rgba(212, 168, 83, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 30% 80%, rgba(167, 139, 219, 0.8), transparent),
+    radial-gradient(2px 2px at 70% 90%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 10% 60%, rgba(212, 168, 83, 0.6), transparent),
+    radial-gradient(2px 2px at 90% 30%, rgba(167, 139, 219, 0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+  animation: glitterSparkle 2s ease-in-out infinite;
+}
+
+.glitter-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes glitterSparkle {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+    filter: brightness(1);
+  }
+
+  25% {
+    background-position: 50% 50%;
+    filter: brightness(1.3);
+  }
+
+  50% {
+    background-position: 100% 100%;
+    filter: brightness(1);
+  }
+
+  75% {
+    background-position: 50% 50%;
+    filter: brightness(1.2);
+  }
+}
+
+/* Magical Border Glow */
+.magic-border {
+  position: relative;
+}
+
+.magic-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg,
+      #D4A853,
+      #A78BDB,
+      #FEFCF3,
+      #A78BDB,
+      #D4A853);
+  background-size: 400% 400%;
+  animation: borderGlow 4s ease-in-out infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating Stars Effect */
+.floating-stars {
+  position: relative;
+}
+
+.floating-stars::before,
+.floating-stars::after {
+  content: '✨';
+  position: absolute;
+  font-size: 1rem;
+  opacity: 0;
+  animation: floatingStar 4s ease-in-out infinite;
+}
+
+.floating-stars::before {
+  top: -10px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-stars::after {
+  top: -15px;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+@keyframes floatingStar {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Golden Dust Trail */
+.golden-dust {
+  position: relative;
+  overflow: visible;
+}
+
+.golden-dust::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  animation: dustPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes dustPulse {
+
+  0%,
+  100% {
+    transform: translateY(-50%) scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Crystal Shine Effect */
+.crystal-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.crystal-shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg,
+      transparent,
+      rgba(212, 168, 83, 0.1),
+      transparent,
+      rgba(167, 139, 219, 0.1),
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  animation: crystalRotate 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes crystalRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sparkle Button Effect */
+.sparkle-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sparkle-btn:hover::before {
+  opacity: 1;
+  animation: btnSparkle 1s ease-in-out infinite;
+}
+
+@keyframes btnSparkle {
+
+  0%,
+  100% {
+    background-position: 0% 50%, 100% 50%;
+    filter: brightness(1);
+  }
+
+  50% {
+    background-position: 100% 50%, 0% 50%;
+    filter: brightness(1.2);
+  }
+}
+
+/* Mystical Aura */
+.mystical-aura {
+  position: relative;
+}
+
+.mystical-aura::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(ellipse at center,
+      rgba(167, 139, 219, 0.2) 0%,
+      rgba(212, 168, 83, 0.1) 30%,
+      transparent 70%);
+  border-radius: inherit;
+  animation: auraPulse 3s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes auraPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
