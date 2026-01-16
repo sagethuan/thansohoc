@@ -8,7 +8,7 @@ if (!fs.existsSync(artifactsDir)) {
     fs.mkdirSync(artifactsDir, { recursive: true });
 }
 
-test.describe('Thần Số Học Landing Page', () => {
+test.describe('Thần Số Học', () => {
 
     test('Desktop full page screenshot (1440x900)', async ({ browser }) => {
         const context = await browser.newContext({

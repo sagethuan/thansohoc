@@ -1,6 +1,6 @@
 # Thần Số Học - Khám phá bản thân
 
-🔮 Website landing page Thần Số Học (Numerology) với tính năng tính số chủ đạo, năm cá nhân và đặt lịch tư vấn.
+🔮 Website Thần Số Học (Numerology) với tính năng tính số chủ đạo, năm cá nhân và đặt lịch tư vấn.
 
 ## Tính năng
 
